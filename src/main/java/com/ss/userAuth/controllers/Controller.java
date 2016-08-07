@@ -20,6 +20,7 @@ public abstract class Controller {
         setupRoutes();
         setupMiddleware();
     }
+    
     protected abstract void setupRoutes();
     protected abstract void setupMiddleware();
     

@@ -19,16 +19,6 @@ public class AccountController extends Controller {
         super();
     }
 
-    private void validateUserPassword() {
-        before("/signup", (req, res) -> {
-            UserSignupModel signupModel = modelFromJson(req.body(), UserSignupModel.class);
-            if (!signupModel.getPassword().equals(signupModel.getConfirmPassword())) {
-                System.out.println("Not valid password");
-                res.status(500);
-            }
-        });
-    }
-
     private void signup() {
         post("/signup", (req, res) -> {
             return "";
@@ -38,10 +28,12 @@ public class AccountController extends Controller {
     private void login() {
         post("/login", (req, res) -> {
             LoginModel loginModel = modelFromJson(req.body(), LoginModel.class);
+            req.session(true);
+            req.session().attribute("username", loginModel.getUsername());
             return "";
         });
     }
-
+    
     @Override
     protected void setupRoutes() {
         login();
@@ -50,6 +42,6 @@ public class AccountController extends Controller {
 
     @Override
     protected void setupMiddleware() {
-        validateUserPassword();
+        
     }
 }
