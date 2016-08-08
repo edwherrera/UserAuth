@@ -9,12 +9,10 @@ package com.ss.userAuth.exceptions;
  *
  * @author eherrerra
  */
-public class UsernameAlreadyInUse extends InvalidFieldException {
-    
-    private static final long serialVersionUID = 1L;
-    
-    public UsernameAlreadyInUse() {
-        super("Username already in use");
+public abstract class InvalidFieldException extends Exception {
+
+    public InvalidFieldException(String message) {
+        super(message);
     }
     
 }

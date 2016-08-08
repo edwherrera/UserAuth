@@ -9,7 +9,7 @@ package com.ss.userAuth.exceptions;
  *
  * @author eherrerra
  */
-public class UserNotFound extends Exception {
+public class UserNotFound extends InvalidFieldException {
     
     private static final long serialVersionUID = 1L;
 

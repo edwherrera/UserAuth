@@ -8,6 +8,7 @@ package com.ss.userAuth.services;
 import com.ss.userAuth.connections.UserPicsConnectionFactory;
 import com.ss.userAuth.dao.SessionDAO;
 import com.ss.userAuth.dao.entities.SessionDTO;
+import com.ss.userAuth.models.SessionTokenModel;
 import java.util.UUID;
 
 /**
@@ -22,7 +23,7 @@ public class SessionServices {
         context = new SessionDAO(UserPicsConnectionFactory.getDbConnection());
     }
     
-    public String addSession(int userId) {
+    public SessionTokenModel addSession(int userId) {
         String token = UUID.randomUUID().toString();
         SessionDTO newSession = new SessionDTO();
         newSession.setToken(token);
@@ -30,7 +31,7 @@ public class SessionServices {
         
         context.add(newSession);
         
-        return token;
+        return new SessionTokenModel(token);
     }
     
 }

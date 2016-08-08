@@ -9,14 +9,12 @@ package com.ss.userAuth.exceptions;
  *
  * @author eherrerra
  */
-public class PasswordMismatch extends Exception {
+public class PasswordMismatch extends InvalidFieldException {
     
     private static final long serialVersionUID = 1L;
 
     public PasswordMismatch() {
         super("Password Mismatch");
-    }
-    
-    
-    
+    }  
+
 }
