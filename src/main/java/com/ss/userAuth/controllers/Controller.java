@@ -19,10 +19,12 @@ public abstract class Controller {
         gson = new Gson();
         setupRoutes();
         setupMiddleware();
+        setupExceptionHandling();
     }
     
     protected abstract void setupRoutes();
     protected abstract void setupMiddleware();
+    protected abstract void setupExceptionHandling();
     
     protected <T> T modelFromJson(String json, Class<T> type) {
         return gson.fromJson(json, type);

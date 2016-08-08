@@ -16,8 +16,8 @@ public class UserSignupModel {
     
     private String username;
     private String password;
+    private String name;
     @SerializedName("confirm_password") private String confirmPassword;
-    @SerializedName("birth_date") private Date birthDate;
 
     public String getUsername() {
         return username;
@@ -43,11 +43,13 @@ public class UserSignupModel {
         this.confirmPassword = confirmPassword;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getName() {
+        return name;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setName(String name) {
+        this.name = name;
     }
+    
+    
 }
